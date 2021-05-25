@@ -1,18 +1,17 @@
 package org.mesleepy.gradle.osdetector.extension
 
+import org.gradle.api.Project
+import org.gradle.api.file.ProjectLayout
+import org.gradle.api.provider.ProviderFactory
+import org.mesleepy.gradle.osdetector.Utils
 import org.mesleepy.gradle.osdetector.core.Detector
 import org.mesleepy.gradle.osdetector.core.DetectorImpl
 import org.mesleepy.gradle.osdetector.core.Release
 import org.mesleepy.gradle.osdetector.facade.ConfigurationTimeSafeFileOperations
 import org.mesleepy.gradle.osdetector.facade.ConfigurationTimeSafeSystemPropertyOperations
-import org.gradle.api.Project
-import org.gradle.api.file.ProjectLayout
-import org.gradle.api.provider.ProviderFactory
-import org.gradle.util.VersionNumber
-import org.slf4j.LoggerFactory
 import javax.inject.Inject
 
-abstract class OsDetector(private val project: Project) {
+abstract class OsDetectorExtension(private val project: Project) {
 
     @get:Inject
     abstract val providerFactory: ProviderFactory
@@ -40,7 +39,7 @@ abstract class OsDetector(private val project: Project) {
     private fun getImpl(): DetectorImpl {
         if (detectorImpl == null) {
             // Config cache is supported in Gradle 6.5 and above.
-            detectorImpl = if (compareGradleVersion(project, "6.5") >= 0) {
+            detectorImpl = if (Utils.compareGradleVersion(project, "6.5") >= 0) {
                 DetectorImpl(
                     classifierWithLikes = classifierWithLikes,
                     sysPropOps = ConfigurationTimeSafeSystemPropertyOperations(providerFactory),
@@ -61,16 +60,5 @@ abstract class OsDetector(private val project: Project) {
         }
         this.classifierWithLikes.clear()
         this.classifierWithLikes.addAll(classifierWithLikes)
-    }
-
-    companion object {
-        internal val logger = LoggerFactory.getLogger(OsDetector::class.java.name)
-
-        private fun compareGradleVersion(
-            project: Project,
-            @Suppress("SameParameterValue") target: String
-        ): Int = VersionNumber
-            .parse(project.gradle.gradleVersion)
-            .compareTo(VersionNumber.parse(target))
     }
 }

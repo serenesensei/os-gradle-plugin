@@ -1,13 +1,16 @@
 package org.mesleepy.gradle.osdetector.core
 
-import org.mesleepy.gradle.osdetector.extension.OsDetector
+import org.mesleepy.gradle.osdetector.extension.OsDetectorExtension
 import org.mesleepy.gradle.osdetector.facade.FileOperationProvider
 import org.mesleepy.gradle.osdetector.facade.SystemPropertyOperationProvider
+import org.slf4j.LoggerFactory
 import java.util.*
 
 class DetectorImpl : Detector {
 
     val detectedProperties = Properties()
+
+    private val logger = LoggerFactory.getLogger(OsDetectorExtension::class.simpleName)
 
     constructor(
         classifierWithLikes: List<String>,
@@ -22,10 +25,10 @@ class DetectorImpl : Detector {
     }
 
     override fun log(message: String?) {
-        OsDetector.logger.info(message)
+        logger.info(message)
     }
 
     override fun logProperty(name: String?, value: String?) {
-        OsDetector.logger.info("$name=$value")
+        logger.info("$name=$value")
     }
 }
