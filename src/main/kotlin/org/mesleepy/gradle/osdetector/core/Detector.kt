@@ -121,15 +121,18 @@ abstract class Detector(
                     // Parse the VERSION_ID line.
                     line.startsWith(LINUX_VERSION_ID_PREFIX) -> {
                         // Set the ID for this version.
-                        version = normalizeOsReleaseValue(line.substring(LINUX_VERSION_ID_PREFIX.length))
+                        version = normalizeOsReleaseValue(
+                            line.substring(LINUX_VERSION_ID_PREFIX.length)
+                        )
                     }
                     // Parse the ID_LIKE line.
                     line.startsWith(LINUX_ID_LIKE_PREFIX) -> {
-                        val l = normalizeOsReleaseValue(line.substring(LINUX_ID_LIKE_PREFIX.length))
-
                         // Split the line on any whitespace.
-                        val parts = l.split("\\s+").toTypedArray()
-                        likeSet.addAll(parts.toList())
+                        val parts = normalizeOsReleaseValue(
+                            line.substring(LINUX_ID_LIKE_PREFIX.length)
+                        ).split("\\s+")
+
+                        likeSet.addAll(parts)
                     }
                 }
             }
@@ -288,11 +291,12 @@ abstract class Detector(
     companion object {
         internal const val DETECTED_NAME = "os.detected.name"
         internal const val DETECTED_ARCH = "os.detected.arch"
+        internal const val DETECTED_CLASSIFIER = "os.detected.classifier"
+
         private const val DETECTED_BITNESS = "os.detected.bitness"
         private const val DETECTED_VERSION = "os.detected.version"
         private const val DETECTED_VERSION_MAJOR = "$DETECTED_VERSION.major"
         private const val DETECTED_VERSION_MINOR = "$DETECTED_VERSION.minor"
-        internal const val DETECTED_CLASSIFIER = "os.detected.classifier"
         internal const val DETECTED_RELEASE = "os.detected.release"
         internal const val DETECTED_RELEASE_VERSION = "$DETECTED_RELEASE.version"
         internal const val DETECTED_RELEASE_LIKE_PREFIX = "$DETECTED_RELEASE.like."

@@ -9,12 +9,12 @@ import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.getByType
 import org.gradle.testfixtures.ProjectBuilder
-import org.mesleepy.gradle.osdetector.extension.OsDetector
+import org.mesleepy.gradle.osdetector.extension.OsDetectorExtension
 
 class OsDetectorPluginTest : FunSpec({
 
     lateinit var project: Project
-    lateinit var osdetector: OsDetector
+    lateinit var osdetector: OsDetectorExtension
 
     beforeEach {
         project = ProjectBuilder.builder().build()
@@ -23,7 +23,6 @@ class OsDetectorPluginTest : FunSpec({
     }
 
     test("Should detect properties.") {
-
         osdetector shouldNotBe null
         osdetector.os shouldNotBe null
         osdetector.arch shouldNotBe null
@@ -48,6 +47,7 @@ class OsDetectorPluginTest : FunSpec({
         osdetector.os shouldNotBe null
         osdetector.arch shouldNotBe null
         System.err.println("classifier=" + osdetector.classifier)
+
         shouldThrowExactly<IllegalStateException> {
             osdetector.setClassifierWithLikes(listOf("debian"))
         }
