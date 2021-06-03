@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 me-sleepy.
+ * Copyright (C) 2021 serenesensei
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,12 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package org.serenesensai.gradle.osdetector.core
 
-package org.mesleepy.gradle.osdetector.core
-
-import org.mesleepy.gradle.osdetector.extension.OsDetectorExtension
-import org.mesleepy.gradle.osdetector.facade.FileOperationProvider
-import org.mesleepy.gradle.osdetector.facade.SystemPropertyOperationProvider
+import org.serenesensai.gradle.osdetector.extension.OsDetectorExtension
+import org.serenesensai.gradle.osdetector.facade.FileOperationProvider
+import org.serenesensai.gradle.osdetector.facade.SystemPropertyOperationProvider
 import org.slf4j.LoggerFactory
 import java.util.*
 

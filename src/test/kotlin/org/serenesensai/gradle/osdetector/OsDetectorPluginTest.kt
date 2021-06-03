@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 me-sleepy.
+ * Copyright (C) 2021 serenesensei
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,8 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-package org.mesleepy.gradle.osdetector
+package org.serenesensai.gradle.osdetector
 
 import io.kotest.assertions.fail
 import io.kotest.assertions.throwables.shouldThrowExactly
@@ -25,7 +24,7 @@ import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.getByType
 import org.gradle.testfixtures.ProjectBuilder
-import org.mesleepy.gradle.osdetector.extension.OsDetectorExtension
+import org.serenesensai.gradle.osdetector.extension.OsDetectorExtension
 
 class OsDetectorPluginTest : FunSpec({
 

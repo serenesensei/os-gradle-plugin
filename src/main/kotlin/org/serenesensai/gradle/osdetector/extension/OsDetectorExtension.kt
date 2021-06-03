@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 me-sleepy.
+ * Copyright (C) 2021 serenesensei
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,17 +14,17 @@
  * limitations under the License.
  */
 
-package org.mesleepy.gradle.osdetector.extension
+package org.serenesensai.gradle.osdetector.extension
 
 import org.gradle.api.Project
 import org.gradle.api.file.ProjectLayout
 import org.gradle.api.provider.ProviderFactory
-import org.mesleepy.gradle.osdetector.Utils
-import org.mesleepy.gradle.osdetector.core.Detector
-import org.mesleepy.gradle.osdetector.core.DetectorImpl
-import org.mesleepy.gradle.osdetector.core.Release
-import org.mesleepy.gradle.osdetector.facade.ConfigurationTimeSafeFileOperations
-import org.mesleepy.gradle.osdetector.facade.ConfigurationTimeSafeSystemPropertyOperations
+import org.serenesensai.gradle.osdetector.Utils
+import org.serenesensai.gradle.osdetector.core.Detector
+import org.serenesensai.gradle.osdetector.core.DetectorImpl
+import org.serenesensai.gradle.osdetector.core.Release
+import org.serenesensai.gradle.osdetector.facade.ConfigurationTimeSafeFileOperations
+import org.serenesensai.gradle.osdetector.facade.ConfigurationTimeSafeSystemPropertyOperations
 import javax.inject.Inject
 
 abstract class OsDetectorExtension(private val project: Project) {

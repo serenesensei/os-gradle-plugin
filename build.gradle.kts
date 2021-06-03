@@ -10,11 +10,11 @@ plugins {
 description = "A Gradle plugin that detects the OS name and architecture, " +
         "providing a uniform classifier to be used in the names of " +
         "org.jetbrains.kotlin.gradle.plugin.KotlinPlatformType.native artifacts."
-group = "org.mesleepy"
+group = "org.serenesensei"
 version = "1.0"
 
 val isReleaseVersion by extra(!project.version.toString().endsWith("SNAPSHOT"))
-val pluginId by extra("org.mesleepy.osdetector")
+val pluginId by extra("org.serenesensei.osdetector")
 
 repositories {
     mavenCentral()

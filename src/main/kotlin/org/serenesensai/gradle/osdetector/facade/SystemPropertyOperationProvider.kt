@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 me-sleepy.
+ * Copyright (C) 2021 serenesensei
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,8 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-package org.mesleepy.gradle.osdetector.facade
+package org.serenesensai.gradle.osdetector.facade
 
 /**
  * Interface exposing system property operations.
